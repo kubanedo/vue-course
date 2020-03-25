@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-sm-6">
         <ul class="list-group">
             <server-unit v-for="server in servers" 
-                        :server="server" 
+                        :server="server"
             ></server-unit>
         </ul>
     </div>
@@ -29,7 +29,7 @@ export default {
         } ,
     created() {
         eventBus.$on('setToNormal', (server) => {
-            this.servers[server.serverID-1].status = 'Normal';
+            this.server.status = 'Normal';
         });
     }      
 }
