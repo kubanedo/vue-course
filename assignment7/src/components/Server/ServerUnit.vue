@@ -1,29 +1,19 @@
 <template>
-    <li class="list-group-item" @click="chooseServer">
-        Server #{{ serverID }} - status: {{ serverStatus }}
+    <li class="list-group-item" @click="chooseServer" style="cursor: pointer">
+        Server #{{ server.id }} - status: {{ server.status }}
     </li>
 </template>
 <script>
 import { eventBus } from '../../main';
 export default {
    props: {
-       serverID: {
-           type: Number,
-       },
-       serverStatus: {
-           type: String,
+       server: {
+           type: Object,
        }
    },
    methods: {
             chooseServer: function() {
-             eventBus.$emit('chosenServer', {
-                 serverID: this.serverID,
-                 serverStatus: this.serverStatus
-             });
-             console.log('this.server', {
-                 serverID: this.serverID,
-                 serverStatus: this.serverStatus
-             });
+             eventBus.$emit('chosenServer', this.server);
             }
    }   
 }

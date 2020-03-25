@@ -2,8 +2,7 @@
     <div class="col-xs-12 col-sm-6">
         <ul class="list-group">
             <server-unit v-for="server in servers" 
-                        :serverID="server.id" 
-                        :serverStatus="server.status"
+                        :server="server" 
             ></server-unit>
         </ul>
     </div>
